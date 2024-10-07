@@ -1,5 +1,7 @@
 grammar Expr;
+
 // Lexer rules
+
 IDENTIFIER: [a-zA-Z]+;
 NUMBER: [0-1]+;
 PLUS: '+';
@@ -10,6 +12,9 @@ COMMENT: '//' ~[\r\n]* -> skip;
 WS: [ \t\r\n]+ -> skip;
 
 // Parser rules
+
+start: (expression | update | hardwareSpec)*;
+
 expression
   : '(' expression ')'
   | expression PLUS expression
@@ -17,6 +22,7 @@ expression
   | SLASH expression
   | IDENTIFIER
   ;
+  
 update
   : IDENTIFIER EQUAL expression
   ;
