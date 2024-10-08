@@ -9,16 +9,16 @@ classpath = '$(antlrjar):.'
 antlr4 = java -cp $(classpath) org.antlr.v4.Tool
 grun = java -cp $(classpath) org.antlr.v4.gui.TestRig
 SRCFILES = main.java
-GENERATED = ExprListener.java ExprBaseListener.java ExprParser.java ExprLexer.java
+GENERATED = ccListener.java ccBaseListener.java ccParser.java ccLexer.java
 
 all:	
 	make grun
 
-ExprLexer.java:	Expr.g4
-	$(antlr4) Expr.g4
+ccLexer.java:	cc.g4
+	$(antlr4) cc.g4
 
-ExprLexer.class:	ExprLexer.java
+ccLexer.class:	ccLexer.java
 	javac -cp $(classpath) $(GENERATED)
 
-grun:	ExprLexer.class Expr.txt
-	$(grun) Expr start -gui -tokens prog.txt 
+grun:	ccLexer.class cc.txt
+	$(grun) cc start -gui -tokens prog.txt 
