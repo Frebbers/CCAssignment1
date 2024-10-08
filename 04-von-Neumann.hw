@@ -1,0 +1,61 @@
+hardware: vonNeumannAdder
+
+ inputs: Read a0 a1 a2 a3 b0 b1 b2 b3 
+outputs:      s0 s1 s2 s3 Overflow
+
+latches: ma0 ma1 ma2 ma3 mb0 mb1 mb2 mb3 Overflow
+
+def: xor(a,b) = a /b + /a b
+def: mux(a,b,c) = a c + b /c
+
+updates:
+
+s0 = xor(ma0',mb0')
+s1 = xor(ma1',mb1')
+s2 = xor(ma2',mb2')
+s3 = xor(ma3',mb3')
+
+// s0 = ma0' /mb0' + /ma0' mb0'
+// s1 = ma1' /mb1' + /ma1' mb1'
+// s2 = ma2' /mb2' + /ma2' mb2'
+// s3 = ma3' /mb3' + /ma3' mb3'
+
+c0 = ma0' mb0'
+c1 = ma1' mb1'
+c2 = ma2' mb2'
+c3 = ma3' mb3'
+
+Overflow = mux(c3,Overflow',Read)
+
+ma0 = mux(a0,s0,Read)
+ma1 = mux(a1,s1,Read)
+ma2 = mux(a2,s2,Read)
+ma3 = mux(a3,s3,Read)
+
+//ma0 = Read a0 + /Read s0
+//ma1 = Read a1 + /Read s1
+//ma2 = Read a2 + /Read s2
+//ma3 = Read a3 + /Read s3
+
+zero = b0/b0 // trick to generate constant 0
+mb0 = mux(b0,zero,Read)
+mb1 = mux(b1,c0,Read)
+mb2 = mux(b2,c1,Read)
+mb3 = mux(b3,c2,Read)
+
+//mb0 = Read b0
+//mb1 = Read b1 + /Read c0
+//mb2 = Read b2 + /Read c1
+//mb3 = Read b3 + /Read c2
+
+siminputs:
+Read=100000000
+  a0=100000000
+  a1=000000000
+  a2=000000000
+  a3=000000000
+  b0=100000000
+  b1=100000000
+  b2=100000000
+  b3=000000000
+  

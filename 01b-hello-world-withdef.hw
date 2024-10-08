@@ -1,0 +1,16 @@
+hardware: helloworld
+
+inputs: Reset
+outputs: Oscillator
+
+latches: Oscillator
+
+def: nor(a,b) = /a * /b
+
+updates:
+
+Oscillator = nor(Oscillator',Reset)
+
+siminputs:
+Reset=0000100
+

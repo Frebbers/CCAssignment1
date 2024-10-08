@@ -1,0 +1,32 @@
+hardware: trafiklys
+
+// Trafiklys eksempel.
+
+inputs: Button
+outputs: Red Yel Green PRed PGreen
+
+latches: Red Yel Req
+
+updates:
+Clr = Red' * /Yel'
+Req = (Req' + Button) * /Clr
+Red = /Red' * Yel' + Red' * /Yel'
+Yel = /Red' * /Yel' * Req + Red' * /Yel'
+Green  = /Red * /Yel
+PGreen = Red * /Yel
+PRed   = /PGreen
+
+siminputs: Button=001001111001
+
+/*
+
+Expected output of the simulator:
+
+001001111001 Button
+000110011000 Red
+001010101001 Yel
+110001000110 Green
+111011101111 PRed
+000100010000 PGreen
+
+*/

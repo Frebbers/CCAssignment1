@@ -1,0 +1,14 @@
+hardware: helloworld
+
+inputs: Reset
+outputs: Oscillator
+
+latches: Oscillator
+
+updates:
+
+Oscillator = /Oscillator' /Reset
+
+siminputs:
+Reset=0000100
+
