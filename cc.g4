@@ -9,7 +9,7 @@ OR: '+';
 NOT: '/';
 EQUALS: '=';
 COLON: ':';
-TYPES: 'hardware' | 'inputs' | 'outputs' | 'latches' | 'updates' | 'siminputs';
+TYPES: 'hardware:' | 'inputs:' | 'outputs:' | 'latches:' | 'updates:' | 'siminputs:';
 COMMENT: ('//' ~[\n]* | '/*' .*? '*/') -> skip;
 WHITESPACE: [ \n\t\r]+ -> skip;
 
