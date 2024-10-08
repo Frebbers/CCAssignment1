@@ -2,14 +2,14 @@ grammar cc;
 
 // Lexer rules
 
-IDENTIFIER: [a-zA-Z_]+[a-zA-Z_0-9’]*;
+IDENTIFIER: [a-zA-Z_]+[a-zA-Z_0-9']*;
 NUMBER: [0-9]+;
 AND: '*';
 OR: '+';
 NOT: '/';
 EQUALS: '=';
 COLON: ':';
-TYPES: 'hardware' COLON | 'inputs' COLON | 'outputs' COLON | 'latches' COLON | 'updates' COLON | 'siminputs' COLON;
+TYPES: 'hardware' COLON | 'inputs' COLON | 'outputs' COLON | 'latches' COLON;
 COMMENT: ('//' ~[\n]* | '/*' .*? '*/') -> skip;
 WHITESPACE: [ \n\t\r]+ -> skip;
 
