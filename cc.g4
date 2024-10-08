@@ -9,7 +9,7 @@ OR: '+';
 NOT: '/';
 EQUALS: '=';
 COLON: ':';
-TYPES: 'hardware:' | 'inputs:' | 'outputs:' | 'latches:' | 'updates:' | 'siminputs:';
+TYPES: 'hardware' COLON | 'inputs' COLON | 'outputs' COLON | 'latches' COLON | 'updates' COLON | 'siminputs' COLON;
 COMMENT: ('//' ~[\n]* | '/*' .*? '*/') -> skip;
 WHITESPACE: [ \n\t\r]+ -> skip;
 
@@ -17,7 +17,7 @@ WHITESPACE: [ \n\t\r]+ -> skip;
 
 start: (assignment | updates | siminputs | COMMENT)* EOF;
 
-assignment: TYPES COLON IDENTIFIER;
+assignment: TYPES IDENTIFIER;
 updates: 'updates' COLON (updatesExp)+;
 siminputs:  'siminputs' COLON (siminputExp)+;
 
