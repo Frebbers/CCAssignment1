@@ -28,3 +28,15 @@ replay_pid*
 *.ipr
 *.iws
 
+/.idea
+
+/cc.interp
+/cc.java
+/cc.tokens
+/ccBaseListener.java
+/ccLexer.interp
+/ccLexer.java
+/ccLexer.tokens
+/ccListener.java
+/ccParser.class
+/ccParser.java

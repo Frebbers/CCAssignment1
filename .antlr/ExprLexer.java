@@ -1,4 +1,4 @@
-// Generated from /Users/madshartwich/Desktop/CCAssignment1/Expr.g4 by ANTLR 4.13.1
+// Generated from /Users/madshartwich/Desktop/CCAssignment1/cc.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -91,7 +91,7 @@ public class ExprLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Expr.g4"; }
+	public String getGrammarFileName() { return "cc.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
