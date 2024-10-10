@@ -13,11 +13,11 @@ SEMICOLON: ';';
 LPAREN: '(';
 RPAREN: ')';
 TYPES: 'hardware' | 'inputs' | 'outputs' | 'latches' | 'updates' | 'siminputs' | 'def';
-COMMENT: ('//' ~[\n]* | '/*' .*? '*/') -> skip; // Comment rules
-WHITESPACE: [ \n\t\r]+ -> skip; // Whitespace
+COMMENT: ('//' ~[\n]* | '/*' .*? '*/') -> skip;
+WHITESPACE: [ \n\t\r]+ -> skip;
 
 // Parser rules
-start: (section)* EOF; // Start rule to accept multiple sections
+start: (section)* EOF;
 
 section: hardwareSection
        | inputsSection
@@ -25,7 +25,7 @@ section: hardwareSection
        | latchesSection
        | updatesSection
        | siminputsSection
-       | functionDef; // New rule for function definitions
+       | functionDef;
 
 hardwareSection: 'hardware' COLON IDENTIFIER SEMICOLON? (COMMENT)?;
 inputsSection: 'inputs' COLON IDENTIFIER (IDENTIFIER)* SEMICOLON? (COMMENT)?;
