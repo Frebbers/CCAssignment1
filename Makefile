@@ -11,6 +11,12 @@ grun = java -cp $(classpath) org.antlr.v4.gui.TestRig
 SRCFILES = main.java
 GENERATED = ccListener.java ccBaseListener.java ccParser.java ccLexer.java
 
+1a = 01a-hello-world.txt
+1b = 01b-hello-world-withdef.hw
+02 = 02-trafiklys-minimal.hw
+03 = 03-trafiklys.hw
+04 = 04-von-Neumann.hw
+
 all:	
 	make grun
 
@@ -21,4 +27,4 @@ ccLexer.class:	ccLexer.java
 	javac -cp $(classpath) $(GENERATED)
 
 grun:	ccLexer.class cc.txt
-	$(grun) cc start -gui -tokens prog.txt 
+	$(grun) cc start -gui -tokens TestFiles/$(1a)

@@ -9,6 +9,7 @@ public class PrettyPrint extends ccBaseListener {
 
     public PrettyPrint() {
         htmlOutput = new StringBuilder();
+                //TODO replace this with a more meaningful title
         htmlOutput.append("<!DOCTYPE html>\n<html><head><title>TITLEOFTHEPAGE</title>\n")
                 .append("<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>\n")
                 .append("<script type=\"text/javascript\" id=\"MathJax-script\" async\n")
