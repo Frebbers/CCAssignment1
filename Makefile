@@ -26,5 +26,5 @@ ccLexer.java:	cc.g4
 ccLexer.class:	ccLexer.java
 	javac -cp $(classpath) $(GENERATED)
 
-grun:	ccLexer.class prog.txt
-	$(grun) cc start -gui -tokens prog.txt 
+grun:	ccLexer.class cc.txt
+	$(grun) cc start -gui -tokens TestFiles/$(1a)
